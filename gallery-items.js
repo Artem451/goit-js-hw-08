@@ -83,6 +83,9 @@ galleryEl.addEventListener('click', openImg)
 
 function openImg (evt) {
   event.preventDefault()
+  if(evt.target.nodeName !== 'IMG'){
+    return
+  }
   const galleryLinkEl = document.querySelector('gallery__image')
   lightboxEl.classList.toggle('is-open')
   lightboxImg.src = evt.target.dataset.img
@@ -90,5 +93,6 @@ function openImg (evt) {
 
 closeBtn.addEventListener('click', () => {
   lightboxEl.classList.toggle('is-open')
+  lightboxImg.src = ""
 })
 
