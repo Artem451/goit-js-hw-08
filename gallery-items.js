@@ -96,3 +96,31 @@ closeBtn.addEventListener('click', () => {
   lightboxImg.src = ""
 })
 
+const imgArray = document.querySelectorAll('.gallery__link')
+const imgSwitchArray = []
+console.log(imgArray)
+imgArray.forEach(element => {
+ imgSwitchArray.push(element.getAttribute('href'))
+});
+
+window.addEventListener('keydown', imgSwitch)
+
+function imgSwitch (evt) {
+  const KEY_ARROW_RIGHT = 'ArrowRight'
+  const KEY_ARROW_LEFT = 'ArrowLeft'
+  console.log(evt.code)
+  let newIndex;
+  const currentId = imgSwitchArray.indexOf(lightboxImg.src)
+  if(evt.code === KEY_ARROW_LEFT) {
+    newIndex = currentId - 1
+    if(newIndex === -1) {
+      newIndex = imgSwitchArray.length - 1
+    }
+  } else if (evt.code === KEY_ARROW_RIGHT) {
+    newIndex = currentId + 1 
+    if (newIndex === imgSwitchArray.length) {
+      newIndex = 0
+    }
+  }
+  lightboxImg.src = imgSwitchArray[newIndex]
+}
