@@ -65,11 +65,13 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('.js-gallery')
-console.log(galleryEl)
+
 
 const makeImageRowMarkup = image => {
   const {preview, original, description} = image
-  return `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" data-img="${original}" alt="${description}"z></a></li>`
+  return `<li class="gallery__item">
+  <a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" data-img="${original}" alt="${description}"z></a>
+  </li>`
 } 
 
 const makeImageMarkup = images.map(makeImageRowMarkup).join('')
@@ -108,7 +110,7 @@ window.addEventListener('keydown', imgSwitch)
 function imgSwitch (evt) {
   const KEY_ARROW_RIGHT = 'ArrowRight'
   const KEY_ARROW_LEFT = 'ArrowLeft'
-  console.log(evt.code)
+  
   let newIndex;
   const currentId = imgSwitchArray.indexOf(lightboxImg.src)
   if(evt.code === KEY_ARROW_LEFT) {
