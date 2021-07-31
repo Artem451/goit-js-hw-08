@@ -83,6 +83,7 @@ const lightboxImg = document.querySelector('.lightbox__image')
 
 galleryEl.addEventListener('click', openImg)
 
+
 function openImg (evt) {
   event.preventDefault()
   if(evt.target.nodeName !== 'IMG'){
